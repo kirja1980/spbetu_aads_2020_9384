@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <string>
+#include <cstring>
 #include <fstream>
 
 bool Bracket(std::string &str, char c, int &i) {
@@ -9,7 +9,7 @@ bool Bracket(std::string &str, char c, int &i) {
 		std::cout << "Скобка - (";
 		i++;
 		c = str[i];
-		if (c == 'A') {
+		/*if (c == 'A') {
 			std::cout << "A)\n";
 			i++;
 			c = str[i];
@@ -21,8 +21,8 @@ bool Bracket(std::string &str, char c, int &i) {
 			else {
 				b = true;
 			}
-		}
-		else {
+		}*/
+		//else {
 			if (c == 'B') {
 				std::cout << "B скобка скобка)\n";
 				i++;
@@ -45,11 +45,11 @@ bool Bracket(std::string &str, char c, int &i) {
 				}
 				
 			}
-		}
+		//}
 
 	}
 	else {
-		if (c == 'A' && i != 0) {
+		if (c == 'A') {
 			std::cout << "\tA\n";
 			b = true;
 		}
@@ -68,7 +68,7 @@ int main()
 		std::cout << "\x1b[0;44m" << str << "\x1b[0m\n";
 		while(str[count] != '\0') count++;
 		char c = str[i];
-		if(Bracket(str, c, i) && i + 1 == count)
+		if(Bracket(str, c, i) && (i + 1 == count || (count == 1 && i == 0)))
 			std::cout << "\tOutput: \x1b[0;42mtrue\x1b[0m\n";
 		else
 			std::cout << "\tOutput: \x1b[0;41mfalse\x1b[0m\n";
