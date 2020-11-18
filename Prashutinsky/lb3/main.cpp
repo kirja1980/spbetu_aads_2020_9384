@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
+#include <string>
+#include <Windows.h>
 #include "BT.h"
 
 std::ifstream infile;
@@ -17,11 +18,13 @@ int main() {
 	infile >> tmp;
 	
 	head.createBT(tmp);
+	head.~BT();
 	printBT(&head);
 	head.replacementBT();
 	std::cout << '\n';
 	printBT(&head);
 	std::cout << '\n';
+	system("pause");
 	infile.close(); 
 	return 0;
 }

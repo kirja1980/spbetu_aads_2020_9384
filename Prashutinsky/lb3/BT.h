@@ -13,18 +13,26 @@ public:
 	BT* right();
 	base RootBT();
 
+	BT& operator= (const BT &bt);
 	void setRoot(char ch);
 	void setLeft(BT* b);
 	void setRight(BT* b);
 
 	void createBT(std::string& tmp);
 	void replacementBT();
+	void copyBT(BT<char>* &copy_to, const BT<char>* copy_from) const;
 
-	bool IsNull(){ return (this == nullptr); }
+	bool IsNull();
+
+	void destroy();
 
 	BT* l;
 	BT* r;
 	base data;
 };
 
+
+//std::string CreateStringBT(BT<char>* bt);
+
 #endif // !BT_H
+
