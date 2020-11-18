@@ -18,7 +18,6 @@ int main() {
 	infile >> tmp;
 	
 	head.createBT(tmp);
-	head.~BT();
 	printBT(&head);
 	head.replacementBT();
 	std::cout << '\n';
