@@ -5,8 +5,8 @@
 #include "BT.h"
 
 std::ifstream infile;
-
-void printBT(BT<char>* head);
+template<class base>
+void printBT(BT<base>* head);
 
 int main() {
 	infile.open("text.txt");
@@ -28,7 +28,8 @@ int main() {
 	return 0;
 }
 
-void printBT(BT<char>* head) {
+template<class base>
+void printBT(BT<base>* head) {
 	if (!head->IsNull()) {
 		if (!head->left()->IsNull() && !head->right()->IsNull() && !(head->RootBT() >= 'a' && head->RootBT() <= 'z'))
 			std::cout << '(';

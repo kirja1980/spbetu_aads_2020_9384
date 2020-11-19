@@ -14,13 +14,13 @@ public:
 	base RootBT();
 
 	BT& operator= (const BT &bt);
-	void setRoot(char ch);
+	void setRoot(base ch);
 	void setLeft(BT* b);
 	void setRight(BT* b);
 
 	void createBT(std::string& tmp);
 	void replacementBT();
-	void copyBT(BT<char>* &copy_to, const BT<char>* copy_from) const;
+	void copyBT(BT<base>* &copy_to, const BT<base>* copy_from) const;
 
 	bool IsNull();
 
