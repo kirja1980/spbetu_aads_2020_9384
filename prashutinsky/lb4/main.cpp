@@ -47,7 +47,45 @@ int main()
 	int c = 0;
 	int  n;
 	int *A;
+	//считывание и сортировка вещественных чисел
+	/*std::ifstream imput;
+	double *D = new double[100];
+	imput.open("double.txt");
+	
+	for (int i = 0; i < 100; i++)
+	{
+		imput >> D[i];
+	}
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << D[i] << ' ';
+	}
+	MergeSort(D, 0, 100 - 1);
+	std::cout << "\n\n";
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << D[i] << ' ';
+	}*/
 
+	//считывание и сортировка символов
+	/*std::ifstream iсput;
+	char *С = new char[100];
+	iсput.open("char.txt");
+
+	for (int i = 0; i < 100; i++)
+	{
+		iсput >> С[i];
+	}
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << С[i] << ' ';
+	}
+	MergeSort(С, 0, 100 - 1);
+	std::cout << "\n\n";
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << С[i] << ' ';
+	}*/
 
 	std::cout << "Выберите считываение:\n\t 1)из консоли\n\t 2)из файла\n";
 	while (!c) {
