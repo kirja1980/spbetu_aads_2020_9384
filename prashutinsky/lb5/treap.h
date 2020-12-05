@@ -2,6 +2,7 @@
 #define TREAP_H
 
 #include <iostream>
+#include <fstream>
 
 
 template <typename base>
@@ -126,13 +127,13 @@ private:
 			PrintTreeC(t->left, level);
 			for (int i = 0; i < level; i++) std::cout << " ";
 			if(t->left && t->right)
-				std::cout << t->key << '<' <<std::endl;
+				std::cout << t->key << "(" << t->priority << ")" << '<' <<std::endl;
 			else if (t->left)
-				std::cout << t->key << '/' << std::endl;
+				std::cout << t->key << "(" << t->priority << ")" << '/' << std::endl;
 			else if (t->right)
-				std::cout << t->key << '\\' << std::endl;
+				std::cout << t->key << "(" << t->priority << ")" << '\\' << std::endl;
 			else
-				std::cout << t->key << std::endl;
+				std::cout << t->key << "(" << t->priority << ")" << std::endl;
 			PrintTreeC(t->right, level);
 			level -= 5;
 			return;
@@ -148,13 +149,13 @@ private:
 			PrintTreeF(output, t->left, level);
 			for (int i = 0; i < level; i++) output << " ";
 			if (t->left && t->right)
-				output << t->key << '<' << '\n';
+				output << t->key << "(" << t->priority << ")" << '<' << '\n';
 			else if (t->left)
-				output << t->key << '/' << '\n';
+				output << t->key << "(" << t->priority << ")" << '/' << '\n';
 			else if (t->right)
-				output << t->key << '\\' << '\n';
+				output << t->key << "(" << t->priority << ")" << '\\' << '\n';
 			else
-				output << t->key << std::endl;
+				output << t->key << "(" << t->priority << ")" << std::endl;
 			PrintTreeF(output, t->right, level);
 			level -= 5;
 			return;

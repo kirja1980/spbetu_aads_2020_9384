@@ -43,7 +43,7 @@ int main()
 		}
 		break;
 	default:
-		std::cout << "Unknown command!";
+		std::cout << "Unknown command!\n";
 		break;
 	}
 
