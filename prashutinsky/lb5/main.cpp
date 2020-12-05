@@ -8,6 +8,7 @@ int main()
 {
 	srand(time(0));
 	std::ifstream input("test.txt");
+	std::ofstream output("out.txt");
 	std::string str;
 	treap<char> root;
 	char ch;
@@ -49,7 +50,7 @@ int main()
 	std::cout << root.find('f') << '\n';
 
 	std::cout << "Treap is:" << '\n';
-	root.print();
+	root.print(output);
 
 	
 	system("pause");

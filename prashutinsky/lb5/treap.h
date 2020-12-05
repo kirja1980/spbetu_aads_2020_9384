@@ -23,10 +23,10 @@ public:
 		return FindTree(root, key);
 	}
 
-	void print()
+	void print(std::ofstream& output)
 	{
 		PrintTreeC(root, 0);
-		PrintTreeF(root, 0);
+		PrintTreeF(output, root, 0);
 	}
 
 	int HeightTree() {
@@ -139,14 +139,13 @@ private:
 		}
 	}
 
-	void PrintTreeF(treap*& t, int level)
+	void PrintTreeF(std::ofstream &output, treap*& t, int level)
 	{
-		std::ofstream output("out.txt");
 		if (t)
 		{
 			if (!t) return;
 			level += 5;
-			PrintTreeF(t->left, level);
+			PrintTreeF(output, t->left, level);
 			for (int i = 0; i < level; i++) output << " ";
 			if (t->left && t->right)
 				output << t->key << '<' << '\n';
@@ -156,7 +155,7 @@ private:
 				output << t->key << '\\' << '\n';
 			else
 				output << t->key << std::endl;
-			PrintTreeF(t->right, level);
+			PrintTreeF(output, t->right, level);
 			level -= 5;
 			return;
 		}
