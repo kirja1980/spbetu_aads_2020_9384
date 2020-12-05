@@ -13,7 +13,8 @@ public:
 
 	void insert(base key)
 	{
-		InsertTree(root, new treap<base>(key, rand()));
+		if(!find(key))
+			InsertTree(root, new treap<base>(key, rand()));
 	}
 
 	int find(base key)
@@ -82,7 +83,7 @@ private:
 			return;
 		}
 
-		if (it->priority > t->priority)
+		if (t->priority < it->priority)
 		{
 			split(t, it->key, it->left, it->right);
 			t = it;
