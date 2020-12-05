@@ -2,7 +2,7 @@
 #define TREAP_H
 
 #include <iostream>
-std::ofstream output("out.txt");
+
 
 template <typename base>
 class treap
@@ -141,7 +141,7 @@ private:
 
 	void PrintTreeF(treap*& t, int level)
 	{
-		
+		std::ofstream output("out.txt");
 		if (t)
 		{
 			if (!t) return;
