@@ -2,7 +2,7 @@
 #define TREAP_H
 
 #include <iostream>
-
+std::ofstream output("out.txt");
 
 template <typename base>
 class treap
@@ -25,7 +25,8 @@ public:
 
 	void print()
 	{
-		PrintTree(root, 0);
+		PrintTreeC(root, 0);
+		PrintTreeF(root, 0);
 	}
 
 	int HeightTree() {
@@ -116,13 +117,13 @@ private:
 		return count;
 	}
 
-	void PrintTree(treap*& t, int level)
+	void PrintTreeC(treap*& t, int level)
 	{
 		if (t)
 		{
 			if (!t) return;
 			level += 5;
-			PrintTree(t->left, level);
+			PrintTreeC(t->left, level);
 			for (int i = 0; i < level; i++) std::cout << " ";
 			if(t->left && t->right)
 				std::cout << t->key << '<' <<std::endl;
@@ -132,7 +133,30 @@ private:
 				std::cout << t->key << '\\' << std::endl;
 			else
 				std::cout << t->key << std::endl;
-			PrintTree(t->right, level);
+			PrintTreeC(t->right, level);
+			level -= 5;
+			return;
+		}
+	}
+
+	void PrintTreeF(treap*& t, int level)
+	{
+		
+		if (t)
+		{
+			if (!t) return;
+			level += 5;
+			PrintTreeF(t->left, level);
+			for (int i = 0; i < level; i++) output << " ";
+			if (t->left && t->right)
+				output << t->key << '<' << '\n';
+			else if (t->left)
+				output << t->key << '/' << '\n';
+			else if (t->right)
+				output << t->key << '\\' << '\n';
+			else
+				output << t->key << std::endl;
+			PrintTreeF(t->right, level);
 			level -= 5;
 			return;
 		}
