@@ -4,6 +4,8 @@
 
 #include <QMessageBox>
 
+#define KEY_MAX 1000
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,11 +25,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionCreate_variant_triggered(){
     int data = QInputDialog::getInt(this, "Create variant.", "Enter amount of elements: ");
     int random;
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < KEY_MAX; i++) {
         treap.erase(i);
     }
     for(int i = 0; i < data; i++){
-        random = rand() % 100;
+        random = rand() % KEY_MAX;
         treap.insert(random);
     }
     scene->clear();
@@ -109,39 +111,45 @@ void MainWindow::on_actionErase_Key_triggered()
     treap.draw(scene);
 }
 
-
+void MainWindow::on_actionDelete_treap_triggered(){
+    for (int i = 0; i < KEY_MAX; i++) {
+        treap.erase(i);
+    }
+    scene->clear();
+    treap.draw(scene);
+}
 
 void MainWindow::on_FINISH_THE_TASK_clicked()
 {
-    QString str;
-    unsigned count = 0;
-    double percent = 100;
-    treap.KLR(str);
-    str.chop(1);
-    if(MainWindow::ui->lineEditKLR->text() == str){
-        count++;
-    }
-    str.clear();
-    treap.LKR(str);
-    str.chop(1);
-    if(MainWindow::ui->lineEditLKR->text() == str){
-        count++;
-    }
-    str.clear();
-    treap.LRK(str);
-    str.chop(1);
-    if(MainWindow::ui->lineEditLRK->text() == str){
-        count++;
-    }
-    str.clear();
-    str.push_back("Your results: ");
-    str.push_back(QString::number(count));
-    str.push_back("/3 (");
-    str.push_back(QString::number(count*percent/3));
-    str.push_back("%)");
-    MainWindow::ui->FinishResults->setText(str);
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "The confirmation.", "Are you sure you want to finish trying?", QMessageBox::Yes|QMessageBox::No);
+    if(reply == QMessageBox::Yes){
+        QString str;
+        unsigned count = 0;
+        double percent = 100;
+        treap.KLR(str);
+        str.chop(1);
+        if(MainWindow::ui->lineEditKLR->text() == str){
+            count++;
+        }
+        str.clear();
+        treap.LKR(str);
+        str.chop(1);
+        if(MainWindow::ui->lineEditLKR->text() == str){
+            count++;
+        }
+        str.clear();
+        treap.LRK(str);
+        str.chop(1);
+        if(MainWindow::ui->lineEditLRK->text() == str){
+            count++;
+        }
+        str.clear();
+        str.push_back("Your results: ");
+        str.push_back(QString::number(count));
+        str.push_back("/3 (");
+        str.push_back(QString::number(count*percent/3));
+        str.push_back("%)");
+        MainWindow::ui->FinishResults->setText(str);
 
-    finish_the_task window;
-    window.setModal(true);
-    window.exec();
+    }
 }

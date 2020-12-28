@@ -8,13 +8,10 @@ finish_the_task::finish_the_task(QWidget *parent) :
     ui->setupUi(this);
 }
 
-
-
 finish_the_task::~finish_the_task()
 {
     delete ui;
 }
-
 
 void finish_the_task::on_buttonBox_accepted()
 {

@@ -35,6 +35,8 @@ private slots:
 
     void on_actionErase_Key_triggered();
 
+    void on_actionDelete_treap_triggered();
+
     void on_FINISH_THE_TASK_clicked();
 
 private:
