@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>855</width>
+    <height>506</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="7" column="0">
+     <widget class="QPushButton" name="FINISH_THE_TASK">
+      <property name="text">
+       <string>Закончить попытку</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="FinishResults">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="8">
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+      </property>
+      <property name="dragMode">
+       <enum>QGraphicsView::ScrollHandDrag</enum>
+      </property>
+      <property name="transformationAnchor">
+       <enum>QGraphicsView::AnchorViewCenter</enum>
+      </property>
+      <property name="resizeAnchor">
+       <enum>QGraphicsView::AnchorViewCenter</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLineEdit" name="lineEditLKR"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLineEdit" name="lineEditKLR"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="LKR">
+      <property name="text">
+       <string>Введите через пробел ЛКП дерева.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="lineEditLRK"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="LRK">
+      <property name="text">
+       <string>Введите через пробел ЛПК дерева.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="KLR">
+      <property name="text">
+       <string>Введите через пробел КЛП дерева.</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>855</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTreapDemonstratio">
+    <property name="title">
+     <string>Project</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="Open"/>
+    <addaction name="Enter"/>
+    <addaction name="actionCreate_variant"/>
+    <addaction name="actionDelete_treap"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuTreap">
+    <property name="title">
+     <string>Treap</string>
+    </property>
+    <addaction name="actionEnter_Key"/>
+    <addaction name="actionErase_Key"/>
+   </widget>
+   <addaction name="menuTreapDemonstratio"/>
+   <addaction name="menuTreap"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="Open">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="Enter">
+   <property name="text">
+    <string>Enter</string>
+   </property>
+  </action>
+  <action name="actionEnter_Key">
+   <property name="text">
+    <string>Enter Key</string>
+   </property>
+  </action>
+  <action name="actionErase_Key">
+   <property name="text">
+    <string>Erase Key</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionStep_by_step_presentation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Step by step presentation</string>
+   </property>
+  </action>
+  <action name="actionCreate_variant">
+   <property name="text">
+    <string>Create variant</string>
+   </property>
+  </action>
+  <action name="actionDelete_Key">
+   <property name="text">
+    <string>Delete Key</string>
+   </property>
+  </action>
+  <action name="actionDelete_treap">
+   <property name="text">
+    <string>Delete treap</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
