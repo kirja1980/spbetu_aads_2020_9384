@@ -13,8 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     z = new Graphics_view_zoom(ui->graphicsView);
     z->set_modifiers(Qt::NoModifier);
+    z_2 = new Graphics_view_zoom(ui->graphicsView_3);
+    z_2->set_modifiers(Qt::NoModifier);
     scene = new QGraphicsScene();
     ui->graphicsView->setScene(scene);
+    scene_2 = new QGraphicsScene();
+    ui->graphicsView_3->setScene(scene_2);
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()
@@ -123,6 +128,7 @@ void MainWindow::on_FINISH_THE_TASK_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "The confirmation.", "Are you sure you want to finish trying?", QMessageBox::Yes|QMessageBox::No);
     if(reply == QMessageBox::Yes){
+        ui->stackedWidget->setCurrentIndex(2);
         QString str;
         unsigned count = 0;
         double percent = 100;
@@ -131,25 +137,111 @@ void MainWindow::on_FINISH_THE_TASK_clicked()
         if(MainWindow::ui->lineEditKLR->text() == str){
             count++;
         }
+        MainWindow::ui->AllResults->append("KLR\n");
+        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditKLR->text() + "\n");
+        MainWindow::ui->AllResults->append("Right ansver:\t" + str + "\n");
         str.clear();
         treap.LKR(str);
         str.chop(1);
         if(MainWindow::ui->lineEditLKR->text() == str){
             count++;
         }
+        MainWindow::ui->AllResults->append("LKR\n");
+        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditKLR->text() + "\n");
+        MainWindow::ui->AllResults->append("Right ansver:\t" + str + "\n");
         str.clear();
         treap.LRK(str);
         str.chop(1);
         if(MainWindow::ui->lineEditLRK->text() == str){
             count++;
         }
+        MainWindow::ui->AllResults->append("LRK\n");
+        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditKLR->text() + "\n");
+        MainWindow::ui->AllResults->append("Right ansver:\t" + str + "\n");
         str.clear();
         str.push_back("Your results: ");
         str.push_back(QString::number(count));
         str.push_back("/3 (");
         str.push_back(QString::number(count*percent/3));
-        str.push_back("%)");
-        MainWindow::ui->FinishResults->setText(str);
+        str.push_back("%)\n");
+        MainWindow::ui->AllResults->append(str);
 
+
+        create2task();
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QMessageBox::StandardButton GoTo1 = QMessageBox::question(this, "Test.", "Do you want to start the test?", QMessageBox::Yes|QMessageBox::No);
+    if(GoTo1 == QMessageBox::Yes){
+        ui->stackedWidget->setCurrentIndex(1);
+        on_actionCreate_variant_triggered();
+    }
+}
+
+void MainWindow::on_FINISH_THE_TASK_3_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "The confirmation.", "Are you sure you want to finish trying?", QMessageBox::Yes|QMessageBox::No);
+    if(reply == QMessageBox::Yes){
+        ui->stackedWidget->setCurrentIndex(3);
+        QString str;
+        unsigned count = 0;
+        double percent = 100;
+        treap.KLR(str);
+        str.chop(1);
+        if(MainWindow::ui->lineEditKLR_4->text() == str){
+            count++;
+        }
+        MainWindow::ui->AllResults_2->append("KLR\n");
+        MainWindow::ui->AllResults_2->append("You ansver:\t" + MainWindow::ui->lineEditKLR_4->text() + "\n");
+        MainWindow::ui->AllResults_2->append("Right ansver:\t" + str + "\n");
+        str.clear();
+        treap.LKR(str);
+        str.chop(1);
+        if(MainWindow::ui->lineEditLKR_4->text() == str){
+            count++;
+        }
+        MainWindow::ui->AllResults_2->append("LKR\n");
+        MainWindow::ui->AllResults_2->append("You ansver:\t" + MainWindow::ui->lineEditLKR_4->text() + "\n");
+        MainWindow::ui->AllResults_2->append("Right ansver:\t" + str + "\n");
+        str.clear();
+        treap.LRK(str);
+        str.chop(1);
+        if(MainWindow::ui->lineEditLRK_4->text() == str){
+            count++;
+        }
+        MainWindow::ui->AllResults_2->append("LRK\n");
+        MainWindow::ui->AllResults_2->append("You ansver:\t" + MainWindow::ui->lineEditLRK_4->text() + "\n");
+        MainWindow::ui->AllResults_2->append("Right ansver:\t" + str + "\n");
+        str.clear();
+        str.push_back("Your results: ");
+        str.push_back(QString::number(count));
+        str.push_back("/3 (");
+        str.push_back(QString::number(count*percent/3));
+        str.push_back("%)\n");
+        MainWindow::ui->AllResults_2->append(str);
+    }
+}
+void MainWindow::on_pushButton_2_clicked()
+{
+    close();
+}
+
+void MainWindow::create2task(){
+    int random;
+    unsigned data = QInputDialog::getInt(this, "Create variant.", "Enter amount of elements: ");
+    for (int i = 0; i < KEY_MAX; i++) {
+        treap.erase(i);
+    }
+    for(unsigned i = 0; i < data; i++){
+        random = rand() % KEY_MAX;
+        treap.insert(random);
+    }
+
+    scene->clear();
+    treap.draw(scene_2);
+
+    int keyreturn = treap.Create2task();
+    MainWindow::ui->FinishResults_2->setText("Key = " + QString::number(keyreturn) + "\tpriority = 0");
 }

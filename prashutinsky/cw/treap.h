@@ -11,6 +11,8 @@
 #define NODE_WIDTH 40
 #define NODE_HEIGHT 40
 
+#define KEY_MAX 1000
+
 template <typename T>
 class Treap
 {
@@ -31,6 +33,12 @@ public:
     void draw(QGraphicsScene* scene)
     {
         _draw(scene, root, pow(2, maxDepth(root)) * 10, pow(2, maxDepth(root)) * 10);
+    }
+
+    int Create2task(){
+        int r = rand() % KEY_MAX;
+        _insert(root,new Treap<T>(r, 0));
+        return r;
     }
 
     int maxDepth(Treap*& t)
@@ -91,11 +99,11 @@ public:
         str.push_back(QString::number(key) + ' ');
     }
 
-    bool TestCheck(QString string){
+    /*bool TestCheck(QString string){
         QString CorrectAnswer;
         KLR(CorrectAnswer);
 
-    }
+    }*/
 private:
     void split(Treap* t, T& key, Treap*& left, Treap*& right)
     {

@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QTextStream>
+#include <QWizard>
 #include "graphics_view_zoom.h"
 
 #include "treap.h"
@@ -39,11 +40,21 @@ private slots:
 
     void on_FINISH_THE_TASK_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_FINISH_THE_TASK_3_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void create2task();
+
 private:
     Treap<int> treap;
 
     Ui::MainWindow *ui;
     QGraphicsScene* scene;
+    QGraphicsScene* scene_2;
     Graphics_view_zoom* z;
+    Graphics_view_zoom* z_2;
 };
 #endif // MAINWINDOW_H

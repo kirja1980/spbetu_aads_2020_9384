@@ -9,19 +9,16 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    finish_the_task.cpp \
     graphics_view_zoom.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    finish_the_task.h \
     graphics_view_zoom.h \
     mainwindow.h \
     treap.h
 
 FORMS += \
-    finish_the_task.ui \
     mainwindow.ui
 
 TRANSLATIONS += \
