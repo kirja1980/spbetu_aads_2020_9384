@@ -36,8 +36,6 @@ private slots:
 
     void on_actionErase_Key_triggered();
 
-    void on_actionDelete_treap_triggered();
-
     void on_FINISH_THE_TASK_clicked();
 
     void on_pushButton_clicked();
@@ -47,6 +45,8 @@ private slots:
     void on_pushButton_2_clicked();
 
     void create2task();
+
+    void on_pushButton_3_clicked();
 
 private:
     Treap<int> treap;

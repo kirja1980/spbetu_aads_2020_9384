@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "finish_the_task.h"
 
 #include <QMessageBox>
 
@@ -116,14 +115,6 @@ void MainWindow::on_actionErase_Key_triggered()
     treap.draw(scene);
 }
 
-void MainWindow::on_actionDelete_treap_triggered(){
-    for (int i = 0; i < KEY_MAX; i++) {
-        treap.erase(i);
-    }
-    scene->clear();
-    treap.draw(scene);
-}
-
 void MainWindow::on_FINISH_THE_TASK_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "The confirmation.", "Are you sure you want to finish trying?", QMessageBox::Yes|QMessageBox::No);
@@ -147,7 +138,7 @@ void MainWindow::on_FINISH_THE_TASK_clicked()
             count++;
         }
         MainWindow::ui->AllResults->append("LKR\n");
-        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditKLR->text() + "\n");
+        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditLKR->text() + "\n");
         MainWindow::ui->AllResults->append("Right ansver:\t" + str + "\n");
         str.clear();
         treap.LRK(str);
@@ -156,7 +147,7 @@ void MainWindow::on_FINISH_THE_TASK_clicked()
             count++;
         }
         MainWindow::ui->AllResults->append("LRK\n");
-        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditKLR->text() + "\n");
+        MainWindow::ui->AllResults->append("You ansver:\t" + MainWindow::ui->lineEditLRK->text() + "\n");
         MainWindow::ui->AllResults->append("Right ansver:\t" + str + "\n");
         str.clear();
         str.push_back("Your results: ");
@@ -244,4 +235,20 @@ void MainWindow::create2task(){
 
     int keyreturn = treap.Create2task();
     MainWindow::ui->FinishResults_2->setText("Key = " + QString::number(keyreturn) + "\tpriority = 0");
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    MainWindow::ui->FinishResults_2->clear();
+    MainWindow::ui->FinishResults->clear();
+    MainWindow::ui->FinishResults_2->clear();
+    MainWindow::ui->lineEditLRK->clear();
+    MainWindow::ui->lineEditLKR->clear();
+    MainWindow::ui->lineEditKLR->clear();
+    MainWindow::ui->lineEditLRK_4->clear();
+    MainWindow::ui->lineEditLKR_4->clear();
+    MainWindow::ui->lineEditKLR_4->clear();
+    MainWindow::scene->clear();
+    MainWindow::scene_2->clear();
+    ui->stackedWidget->setCurrentIndex(0);
 }

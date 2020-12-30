@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>987</width>
-    <height>432</height>
+    <width>840</width>
+    <height>365</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="title">
        <layout class="QGridLayout" name="gridLayout_5">
@@ -164,6 +164,19 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
+        <item row="2" column="0">
+         <widget class="QSplitter" name="splitter_10">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QLabel" name="LKR_4">
+           <property name="text">
+            <string>Вставлен ключ. Введите через пробел ЛКП дерева с изменениями. (пробелы должны быть только между ключами)</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEditLKR_4"/>
+         </widget>
+        </item>
         <item row="0" column="1" rowspan="5">
          <widget class="QGraphicsView" name="graphicsView_3">
           <property name="enabled">
@@ -201,6 +214,13 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="FINISH_THE_TASK_3">
+          <property name="text">
+           <string>Закончить попытку</string>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="0">
          <widget class="QSplitter" name="splitter_8">
           <property name="orientation">
@@ -212,19 +232,6 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
           <widget class="QLineEdit" name="lineEditLRK_4"/>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QSplitter" name="splitter_10">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <widget class="QLabel" name="LKR_4">
-           <property name="text">
-            <string>Вставлен ключ. Введите через пробел ЛКП дерева с изменениями. (пробелы должны быть только между ключами)</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEditLKR_4"/>
          </widget>
         </item>
         <item row="3" column="0">
@@ -240,34 +247,31 @@ p, li { white-space: pre-wrap; }
           <widget class="QLineEdit" name="lineEditKLR_4"/>
          </widget>
         </item>
-        <item row="4" column="0">
-         <widget class="QPushButton" name="FINISH_THE_TASK_3">
-          <property name="text">
-           <string>Следующее задание</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="results">
-       <layout class="QGridLayout" name="gridLayout_7">
-        <item row="0" column="0">
-         <widget class="QSplitter" name="splitter_22">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0" colspan="2">
+         <widget class="QSplitter" name="splitter_20">
           <property name="orientation">
-           <enum>Qt::Vertical</enum>
+           <enum>Qt::Horizontal</enum>
           </property>
-          <widget class="QSplitter" name="splitter_20">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <widget class="QTextBrowser" name="AllResults"/>
-           <widget class="QTextBrowser" name="AllResults_2"/>
-          </widget>
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="text">
-            <string>Закрыть приложение</string>
-           </property>
-          </widget>
+          <widget class="QTextBrowser" name="AllResults"/>
+          <widget class="QTextBrowser" name="AllResults_2"/>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="text">
+           <string>Повторить попытку</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>Закрыть приложение</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -281,7 +285,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>987</width>
+     <width>840</width>
      <height>21</height>
     </rect>
    </property>
